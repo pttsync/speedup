@@ -16,6 +16,8 @@ backup proxy selections in file `/etc/clash/history` for next run.
 ## /etc/clash/script/restore.sh
 restore last proxy selections saved in file `/etc/clash/history` for new run.   
 
+---  
+
 **you can change the path of these files, but you have to modify the code for sure**  
 
 ## thanks  
