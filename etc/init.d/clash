@@ -94,18 +94,21 @@ add_iptables()
 		done
 	fi
 
-	ipset create proxy_lan hash:net
-	ipset add proxy_lan 10.1.1.1/32
-	ipset add proxy_lan 10.1.1.2/32
-	ipset add proxy_lan 10.1.1.3/32
-	ipset add proxy_lan 10.1.1.4/32
-	ipset add proxy_lan 10.1.1.5/32
-	ipset add proxy_lan 10.1.1.10/32
+	# access control: uncomment all 'access control' sections and edit ips.
+	# ipset create proxy_lan hash:net
+	# ipset add proxy_lan 10.1.1.2/32
+	# ipset add proxy_lan 10.1.1.3/32
+	# ipset add proxy_lan 10.1.1.4/32
+	# ipset add proxy_lan 10.1.1.5/32
+	# ipset add proxy_lan 10.1.1.10/32
 
 	iptables -t nat -N clash
 	iptables -t nat -F clash
 	iptables -t nat -A clash -m set --match-set localnetwork dst -j RETURN
-	iptables -t nat -A clash -m set ! --match-set proxy_lan src -j RETURN
+
+	# access control
+	# iptables -t nat -A clash -m set ! --match-set proxy_lan src -j RETURN
+	
 	iptables -t nat -A clash -p tcp -j REDIRECT --to-ports 7892
 	iptables -t nat -A PREROUTING -p tcp -j clash
 
@@ -114,7 +117,10 @@ add_iptables()
 	iptables -t mangle -N clash
 	iptables -t mangle -F clash
 	iptables -t mangle -A clash -m set --match-set localnetwork dst -j RETURN
-	iptables -t mangle -A clash -m set ! --match-set proxy_lan src -j RETURN
+
+	# access control
+	# iptables -t mangle -A clash -m set ! --match-set proxy_lan src -j RETURN
+	
 	iptables -t mangle -A clash -p udp -j TPROXY --on-port 7892 --tproxy-mark 1
 	iptables -t mangle -A PREROUTING -p udp -j clash
 }
@@ -132,8 +138,10 @@ rm_iptables()
 	iptables -t mangle -D PREROUTING -p udp -j clash
 	iptables -t mangle -X clash >/dev/null
 
-	ipset destroy proxy_lan >/dev/null
 	ipset destroy localnetwork >/dev/null
+
+	# access control
+	# ipset destroy proxy_lan >/dev/null	
 }
 
 restore()
