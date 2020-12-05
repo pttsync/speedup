@@ -29,6 +29,9 @@ the file is like (only one line, one link):
 https://some.interesting.cloud/clash?token=give_Knect_some_money  
 ```
 
+## /etc/clash/script/update_geoip.sh  
+update `Country.mmdb` file and restart service.  
+
 ---  
 
 **you can change the path of these files, but you have to modify the code for sure**  

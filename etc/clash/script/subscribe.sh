@@ -1,11 +1,11 @@
 #!/bin/sh
 
-SUB_LIST="/etc/clash/sub.link"
+SUB_LINK="/etc/clash/sub.link"
 CONFIG_FILE="/etc/clash/config.yaml"
 
-echo "Cheking file sub.list..."
-if [ -f $SUB_LIST ]; then
-	url=$(sed -n 1p $SUB_LIST)
+echo "Cheking file sub.link..."
+if [ -f $SUB_LINK ]; then
+	url=$(sed -n 1p $SUB_LINK)
 	echo "Getting clash config from $url..."
 	wget --no-check-certificate --user-agent="wget/OpenWrt" $url -O /tmp/config.yaml >/dev/null 2>&1
 	if [[ "$?" -eq "0" ]]; then
