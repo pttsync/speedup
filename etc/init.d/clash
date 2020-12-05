@@ -29,7 +29,7 @@ start_service()
 
 stop_service()
 {
-	sh /etc/clash/script/backup.sh
+	backup
 
 	if pidof clash >/dev/null; then
 		kill $(pidof clash) || kill -9 $(ps | grep clash | grep -v grep | awk '{print $1}')
@@ -142,6 +142,11 @@ rm_iptables()
 
 	# access control
 	# ipset destroy proxy_lan >/dev/null	
+}
+
+backup()
+{
+	sh /etc/clash/script/backup.sh
 }
 
 restore()
