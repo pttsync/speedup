@@ -24,13 +24,10 @@ start_service()
 	procd_close_instance
 
 	add_iptables
-	restore &
 }
 
 stop_service()
 {
-	backup
-
 	if pidof clash >/dev/null; then
 		kill $(pidof clash) || kill -9 $(ps | grep clash | grep -v grep | awk '{print $1}')
 	fi
@@ -142,15 +139,4 @@ rm_iptables()
 
 	# access control
 	# ipset destroy proxy_lan >/dev/null	
-}
-
-backup()
-{
-	sh /etc/clash/script/backup.sh
-}
-
-restore()
-{
-	sleep 2
-	sh /etc/clash/script/restore.sh 
 }
