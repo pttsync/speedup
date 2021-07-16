@@ -5,6 +5,12 @@ and Clash != Clash Premium
 
 make sure there is a dir `/etc/clash`, and put clash core (rename it to `clash`), `config.yaml`, `Country.mmdb` in it.  
 
+check dependency:
+```shell
+opkg update
+opkg install ipset iptables-mod-tproxy
+```
+
 ## /etc/init.d/clash  
 main service file, make it executable by running `chmod +x /etc/init.d/clash` in shell.  
 run `/etc/init.d/clash enable` to make it startup with system.  
