@@ -1,6 +1,6 @@
 #!/bin/sh
 
-URL="https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP-CN@master/artifacts/Country.mmdb"
+URL="https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb"
 MMDB_FILE="/etc/clash/Country.mmdb"
 
 # Minimizied
