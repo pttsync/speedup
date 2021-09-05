@@ -18,7 +18,7 @@ MMDB_FILE="/etc/clash/Country.mmdb"
 echo "Updating Country.mmdb..."
 UPDATE=`wget -c4 --no-check-certificate --timeout=300 --user-agent="Mozilla" $URL -O /tmp/Country.mmdb`
 if $UPDATE; then
-	COMPARE=`cmp -s /tmp/Country.mmdb $MMDB_FILE`
+	COMPARE=`cmp /tmp/Country.mmdb $MMDB_FILE`
 	if $COMPARE; then
 		echo "GEOIP is up to date! Nothing changed."
 		rm -f /tmp/Country.mmdb 
