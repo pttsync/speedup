@@ -1,7 +1,7 @@
 #!/bin/sh /etc/rc.common
 # /etc/init.d/clash
-# Copyright (C) 2020 imKnect@Github
-# For OpenWrt 19.07 gateway transparent proxy.
+# Copyright (C) 2021 imKnect@Github
+# For OpenWrt 21.02 gateway transparent proxy.
 
 USE_PROCD=1
 START=99

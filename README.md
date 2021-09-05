@@ -22,14 +22,14 @@ run `/etc/init.d/clash enable` to make it startup with system.
 you can replace `/etc/init.d/clash` with `service`  
 open it as text file and check it out for more info.  
 
-## /etc/clash/script/subscribe.sh
+## /etc/clash/subscribe.sh
 get subscribe link from file `/etc/clash/sub.link` (one-line-url) then wget the config file, cover the old one, and restart service.  
 the file is like (only one line, one link):  
 ```text
 https://some.interesting.cloud/clash?token=give_Knect_some_money  
 ```
 
-## /etc/clash/script/update_geoip.sh  
+## /etc/clash/update_geoip.sh  
 update `Country.mmdb` file and restart service.  
 
 ---  
