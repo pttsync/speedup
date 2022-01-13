@@ -18,4 +18,4 @@ better_clashp_url="https://ghproxy.kne.pm/"$clashp_url
 wget $better_clashp_url
 gzip -dk $clashp_version.gz
 mv $clashp_version /etc/clash/clash
-chmod a+x etc/clash/clash
+chmod a+x /etc/clash/clash
